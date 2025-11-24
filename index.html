@@ -6,35 +6,10 @@
     <title>Luke Marchant – Tell the Sky a Story</title>
 
     <style>
-        @font-face {
-            font-family: 'Teutonic';
-            src: url('fonts/teutonic1.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-        @font-face {
-            font-family: 'Teutonic';
-            src: url('fonts/teutonic2.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-        @font-face {
-            font-family: 'Teutonic';
-            src: url('fonts/teutonic3.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-        @font-face {
-            font-family: 'Teutonic';
-            src: url('fonts/teutonic4.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Teutonic', serif;
+            font-family: 'Times New Roman', serif;
             background: #000;
             color: #fff;
         }
@@ -45,18 +20,17 @@
             right: 0;
             padding: 20px 30px;
             font-size: 14px;
-            font-family: "Times New Roman", serif;
+            font-family: 'Times New Roman', serif;
         }
 
         header a {
-            color: #fff;
+            color: #fff !important;
             text-decoration: none;
             border-bottom: 1px solid transparent;
-            font-family: "Times New Roman", serif;
         }
 
         header a:hover {
-            border-bottom: 1px solid #fff;
+            border-bottom: 1px solid #fff !important;
         }
 
         .hero {
@@ -64,26 +38,24 @@
             flex-direction: column;
             align-items: flex-start;
             justify-content: flex-start;
-            text-align: left;
             padding: 120px 40px 20px 40px;
         }
 
         .artist-name {
-            font-family: 'Teutonic', serif;
-            font-weight: normal;
+            font-family: 'Times New Roman', serif;
+            font-weight: 400;
             font-size: 48px;
             margin: 0;
         }
 
         .subtitle {
-            font-family: 'Teutonic', serif;
-            font-weight: normal;
+            font-family: 'Times New Roman', serif;
+            font-weight: 400;
             font-size: 28px;
             font-style: italic;
             margin-top: 20px;
             width: 100%;
             text-align: center;
-            color: #fff;
         }
 
         .gallery {
@@ -102,6 +74,13 @@
             height: auto;
             object-fit: cover;
             background: #222;
+            scroll-behavior: smooth;
+        }
+
+        figcaption {
+            font-family: 'Times New Roman', serif;
+            font-size: 16px;
+            margin-top: 10px;
         }
 
         .about {
@@ -110,7 +89,7 @@
             padding: 0 20px;
             line-height: 1.6;
             font-size: 14px;
-            font-family: "Times New Roman", serif;
+            font-family: 'Times New Roman', serif;
         }
 
         .footer-space {
@@ -121,7 +100,8 @@
 <body>
 
     <header>
-        contact: <a href="mailto:luke@lukemarchant.co.uk">luke@lukemarchant.co.uk</a>
+        contact: 
+        <a href="mailto:luke@lukemarchant.co.uk">luke@lukemarchant.co.uk</a>
     </header>
 
     <section class="hero">
@@ -134,6 +114,7 @@
     <script>
         const IMAGE_EXTENSION = 'jpeg';
         const IMAGE_COUNT = 18;
+
         const galleryEl = document.getElementById('gallery');
 
         const captions = {
@@ -155,7 +136,6 @@
             const figure = document.createElement('figure');
             figure.style.textAlign = 'center';
             figure.style.maxWidth = '650px';
-            figure.style.width = '100%';
             figure.style.margin = '0 auto';
 
             const img = document.createElement('img');
@@ -167,10 +147,6 @@
             if (captions[i]) {
                 const caption = document.createElement('figcaption');
                 caption.textContent = captions[i];
-                caption.style.fontFamily = 'Times New Roman, serif';
-                caption.style.fontSize = '16px';
-                caption.style.marginTop = '10px';
-                caption.style.color = '#fff';
                 figure.appendChild(caption);
             }
 
