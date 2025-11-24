@@ -70,4 +70,121 @@
 
         .artist-name {
             font-family: 'Teutonic', serif;
-            f
+            font-weight: normal;
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .subtitle {
+            font-family: 'Teutonic', serif;
+            font-weight: normal;
+            font-size: 28px;
+            font-style: italic;
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        .gallery {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 650px;
+            height: auto;
+            object-fit: cover;
+            background: #222;
+        }
+
+        .about {
+            max-width: 700px;
+            margin: 120px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+            font-size: 14px;
+            font-family: "Times New Roman", serif;
+        }
+
+        .footer-space {
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        contact: <a href="mailto:luke@lukemarchant.co.uk">luke@lukemarchant.co.uk</a>
+    </header>
+
+    <section class="hero">
+        <h1 class="artist-name">Luke Marchant</h1>
+        <p class="subtitle">Tell the Sky a Story, The Old Waiting Room, Peckham, London [2025]</p>
+    </section>
+
+    <section class="gallery" id="gallery"></section>
+
+    <script>
+        const IMAGE_EXTENSION = 'jpeg';
+        const IMAGE_COUNT = 18;
+        const galleryEl = document.getElementById('gallery');
+
+        const captions = {
+            7: "Untitled I [Tell The Sky a Story] | Oil on Wood | 30cm x 23cm x 2.5 cm",
+            8: "Untitled II [Tell The Sky a Story] | Oil on Wood | 30cm x 23cm x 2.5 cm",
+            9: "Untitled III [Tell The Sky a Story] | Oil on Wood | 30cm x 23cm x 2.5 cm",
+            10: "Untitled IV [Tell The Sky a Story] | Oil on Wood | 30cm x 23cm x 2.5 cm",
+            11: "Untitled V [Tell The Sky a Story] | Oil on Canvas | 33.5cm x 26.5cm x 5cm",
+            12: "Untitled VI [Tell The Sky a Story] | Oil on Canvas | 33.5cm x 26.5cm x 5cm",
+            13: "Untitled VII [Tell The Sky a Story] | Oil on Canvas | 33.5cm x 26.5cm x 5cm",
+            14: "Untitled VIII [Tell The Sky a Story] | Oil on Canvas | 33.5cm x 26.5cm x 5cm",
+            15: "Untitled IX [Tell The Sky a Story] | Oil on Canvas | 33.5cm x 26.5cm x 5cm",
+            16: "Untitled X [Tell The Sky a Story] | Oil on Canvas | 32cm x 28.5cm x 5cm",
+            17: "Untitled XI [Tell The Sky a Story] | Oil on Wood | 36.5cm x 33cm x 5cm",
+            18: "Untitled XII [Tell The Sky a Story] | Oil on Wood | 33cm x 31cm x 5cm"
+        };
+
+        for (let i = 1; i <= IMAGE_COUNT; i++) {
+            const figure = document.createElement('figure');
+            figure.style.textAlign = 'center';
+            figure.style.maxWidth = '650px';
+            figure.style.width = '100%';
+            figure.style.margin = '0 auto';
+
+            const img = document.createElement('img');
+            img.src = `images/${i}.${IMAGE_EXTENSION}`;
+            img.alt = `Artwork ${i}`;
+            img.loading = 'lazy';
+            figure.appendChild(img);
+
+            if (captions[i]) {
+                const caption = document.createElement('figcaption');
+                caption.textContent = captions[i];
+                caption.style.fontFamily = 'Times New Roman, serif';
+                caption.style.fontSize = '16px';
+                caption.style.marginTop = '10px';
+                caption.style.color = '#fff';
+                figure.appendChild(caption);
+            }
+
+            galleryEl.appendChild(figure);
+        }
+    </script>
+
+    <section class="about">
+        <p>
+            All rights reserved. All artworks, images, and written material displayed on this website are protected under intellectual property laws and remain the exclusive property of the artist, Luke Marchant. No reproduction, distribution, or use is permitted without the explicit written consent of the artist.
+        </p>
+    </section>
+
+    <div class="footer-space"></div>
+
+</body>
+</html>
